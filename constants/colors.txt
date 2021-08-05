@@ -2,4 +2,13 @@ Logo Color : #FFB833
 Background Color : #f8f8f8
 Black (Toolbar and area) : #281c1c
 Border radius : 5px;
+Red Button Color : #ef374c
 
+Border Colors
+Dark-Red : #900c3e
+Normal-Red : #c70039
+Orange : #ff5733
+Yellow : #Ffe901
+Green : #00af52
+Blue : #0170c1
+Purple : #571845

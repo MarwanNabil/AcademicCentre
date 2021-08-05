@@ -3,13 +3,9 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border-left: #FFB833;
     border-width: 90px;
     border-radius:5px;
     background-color: #281c1c;
-  }
-  li {
-    float: right;
   }
 
   li a {
@@ -27,5 +23,20 @@ ul {
     background-color: #FFB833;
   }
   .active{
-    background-color: #FFB833;
+    background-color: #f8f8f8;
+    color:#281c1c;
   }
+  .left{
+      float: left;
+      color: #ef374c;
+  }
+  .right{
+      float: right;
+  }
+  .image{
+    padding-top:2px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  

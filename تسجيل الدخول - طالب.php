@@ -23,13 +23,13 @@
     <body>
         
         <ul>
-            <li><a class="active" href="تسجيل الدخول - طالب.php">طالب</a></li>
-            <li><a href="تسجيل الدخول - عميل.php">عميل</a></li>
-            <li><a href="تسجيل الدخول - محاضر.php">محاضر</a></li>
+            <li><a class="right active" href="تسجيل الدخول - طالب.php">طالب</a></li>
+            <li><a class="right" href="تسجيل الدخول - عميل.php">عميل</a></li>
+            <li><a class="right" href="تسجيل الدخول - محاضر.php">محاضر</a></li>
         </ul>
-        <div style="background-color: #201c1c; width:70%; height:800px; margin-right:auto; margin-left:auto; margin-top:1%; text-align:right; border-radius:5px;">
+        <div style="background-color: #201c1c; width:70%; height:800px; margin-right:auto; margin-left:auto; margin-top:1%; text-align:right; padding:5px; border-radius:5px;">
             
-            <h1 style="text-align:center; padding-top: 50px;"> سنتر سمارت </h1>
+            <img style="margin-left: auto; margin-right: auto; display: block;" src="images/logoBig.png">
             <h2 style="text-align:center;"> يرجي تسجيل البيانات الخاصة بالطالب </h1>
 
             <form style="margin-top:10px; width:80%;" method="POST">
