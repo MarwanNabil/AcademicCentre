@@ -1,0 +1,5 @@
+Logo Color : #FFB833
+Background Color : #f8f8f8
+Black (Toolbar and area) : #281c1c
+Border radius : 5px;
+
