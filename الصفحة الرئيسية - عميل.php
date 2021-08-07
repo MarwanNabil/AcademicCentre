@@ -1,10 +1,11 @@
 <?php
+    
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>تسجيل الدخول - عميل</title>
+        <title>الصفحة الرئيسية  - عميل</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
         <link rel="stylesheet" type="text/css" href="styles/toolbar.css"/>
