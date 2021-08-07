@@ -23,7 +23,7 @@
             $this->telephoneNumber = $telephoneNumber;
         }
         public function getID(){
-            return $this->id();
+            return $this->id;
         }
         public function setID($id){
             $this->id = $id;
@@ -71,7 +71,7 @@
             return $this->parentOnePhoneNumber;
         }
         public function setParentOnePhoneNumber($phoneNumber){
-            $this->parentTwoPhoneNumber = $phoneNumber;
+            $this->parentOnePhoneNumber = $phoneNumber;
         }
         public function getParentTwoPhoneNumber(){
             return $this->parentTwoPhoneNumber;
@@ -126,12 +126,91 @@
         }
         
         public function searchViaFirstName($targetFirstName) : \DS\Vector {
-            $query = database::getInstance()->prepare("SELECT * FROM student WHERE firstName = ?");
-            $query->execute(array($targetFirstName));
+
+            if($targetFirstName == ""){
+                $query = database::getInstance()->prepare("SELECT * FROM student");
+                $query->execute();
+            } else {
+                $query = database::getInstance()->prepare("SELECT * FROM student WHERE firstName = ?");
+                $query->execute(array($targetFirstName));
+            }
             
-            //will return null if not found , otherwise will return an object
+            //will return null if not found , otherwise will return an vector of all valid students
             if($query->rowCount() == 0)
                 return null;
+
+            $validStudents = new \DS\Vector();
+            while($row = $query->fetch()){    
+                $validStudents->push( studentFactory::rowIntializerToStudent($row) );
+            }
+            return $validStudents;
+        }
+
+        public function searchAny($target) : \DS\Vector {
+            $will = 'SELECT * from student ';
+            $adder = '';
+            $array = [];
+            
+            if($target->getID() == ""){
+                $adder .= "WHERE id LIKE '%' ";
+            } else {
+                $adder .= 'WHERE id = ? ';
+                array_push($array , $target->getID());
+            }
+
+            if($target->getFirstName() == ""){
+                $adder .= "AND firstName LIKE '%' ";
+            } else {
+                $adder .= 'AND firstName = ? ';
+                array_push($array , $target->getFirstName());
+            }
+
+            if($target->getLastName() == ""){
+                $adder .= "AND lastName LIKE '%' ";
+            } else {
+                $adder .= 'AND lastName = ? ';
+                array_push($array , $target->getlastName());
+            }
+            
+            if($target->getPhoneNumber() == ""){
+                $adder .= "AND phoneNumber LIKE '%' ";
+            } else {
+                $adder .= 'AND phoneNumber = ? ';
+                array_push($array , $target->getPhoneNumber());
+            }
+            
+            if($target->getPassword() == ""){
+                $adder .= "AND password LIKE '%' ";
+            } else {
+                $adder .= 'AND password = ? ';
+                array_push($array , $target->getPassword());
+            }
+
+            if($target->getParentOnePhoneNumber() == ""){
+                $adder .= "AND firstParentPhoneNumber LIKE '%' ";
+            } else {
+                $adder .= 'AND firstParentPhoneNumber = ? ';
+                array_push($array , $target->getParentOnePhoneNumber());
+            }
+
+            if($target->getParentTwoPhoneNumber() == ""){
+                $adder .= "AND secondParentPhoneNumber LIKE '%' ";
+            } else {
+                $adder .= 'AND secondParentPhoneNumber = ? ';
+                array_push($array , $target->getParentTwoPhoneNumber());
+            }
+
+            if($target->getGrade() == ""){
+                $adder .= "AND grade LIKE '%' ";
+            } else {
+                $adder .= 'AND grade = ? ';
+                array_push($array , $target->getGrade());
+            }
+
+            $will .= $adder;
+            
+            $query = database::getInstance()->prepare($will);
+            $query->execute($array);
 
             $validStudents = new \DS\Vector();
             while($row = $query->fetch()){    
@@ -150,5 +229,5 @@
     studentFactory::deleteStudentViaID(3);
     */
 
-    print_r(studentFactory::searchViaFirstName("Marwan"));
+  //  print_r(studentFactory::searchViaFirstName(""));
 ?>

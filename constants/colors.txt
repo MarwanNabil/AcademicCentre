@@ -9,6 +9,6 @@ Dark-Red : #900c3e
 Normal-Red : #c70039
 Orange : #ff5733
 Yellow : #Ffe901
-Green : #00af52
+Green : #00af52  , on hover : #58dd96
 Blue : #0170c1
 Purple : #571845
