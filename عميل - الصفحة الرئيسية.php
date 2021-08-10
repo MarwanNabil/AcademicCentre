@@ -22,7 +22,7 @@
         <div style="height: 555px; padding-right: 30px; padding-top: 10px; margin-top:10px;">
             <h1>ماذا تود أن تفعل؟</h1>
             <div style="float:right;">
-                <div class="borderContent" style="background-color:#900c3e;" >
+                <div class="borderContent" style="background-color:#900c3e;" onclick="location.href='عميل - صف دراسي.php'">
                     <img src="images/yearBig.png">
                     <h2>سنة دراسية</h2>
                 </div>
@@ -38,7 +38,7 @@
                     <img src="images/courseBig.png"> 
                     <h2>مادة مختصة</h2>
                 </div>
-                <div class="borderContent" style="background-color:#Ffd700;">
+                <div class="borderContent" style="background-color:#Ffd700;" onclick="location.href='عميل - طالب.php'">
                     <img src="images/studentBig.png">
                     <h2>طالب</h2>
                 </div> 

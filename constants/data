@@ -6,3 +6,11 @@ grade (student year) : is a number from 1 up to 25
 
 phone number length : 11
 telephone number length : 20
+
+
+subject name at most : 30 character length
+subjectID : SMALLINT up to 32767
+group code length : 4
+DateTime of specific group : 100
+
+grade name at most : 30 character length

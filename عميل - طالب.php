@@ -20,27 +20,35 @@
             <li><a class="left" href="تسجيل الدخول - محاضر.php">تسجيل الخروج</a></li>
         </ul>
         <div style="height: 555px; padding-right: 30px; padding-top: 10px; margin-top:10px;">
-            <h1>ماذا تود أن تفعل؟</h1>
             <div style="float:right;">
-                <div class="borderContent" style="background-color:#900c3e;" >
-                    <img src="images/yearBig.png">
-                    <h2>سنة دراسية</h2>
+                <img style="float:right;" src="images/backSmall.png" onclick="location.href='عميل - الصفحة الرئيسية.php'">
+                <h1 style="float:left; margin-right:10px;">قسم الطلاب</h1>
+            </div>
+            
+            <div style="float:right;">
+                <div class="borderContent" style="background-color:#900c3e;" onclick="location.href='عميل - اضافة طالب.php'" >
+                    <img src="images/registerBig.png">
+                    <h2>إضافة طالب</h2>
                 </div>
-                <div class="borderContent" style="background-color:#571845;">
-                    <img src="images/subjectBig.png">    
-                    <h2>مادة</h2>    
+                <div class="borderContent" style="background-color:#571845;" onclick="location.href='عميل - بحث طلاب.php'" >
+                    <img src="images/searchBig.png">    
+                    <h2>بحث</h2>    
                 </div> 
-                <div class="borderContent" style="background-color:#0170c1;">
-                    <img src="images/teacherBig.png"> 
-                    <h2>محاضر</h2>
+                <div class="borderContent" style="background-color:#0170c1;" onclick="location.href='عميل - الغاء طالب.php'">
+                    <img src="images/trashBig.png"> 
+                    <h2>مسح</h2>
                 </div>  
                 <div class="borderContent" style="background-color:#00af52;">
                     <img src="images/courseBig.png"> 
-                    <h2>مادة مختصة</h2>
+                    <h2>إضافة كورس</h2>
                 </div>
                 <div class="borderContent" style="background-color:#Ffd700;">
-                    <img src="images/studentBig.png">
-                    <h2>طالب</h2>
+                    <img src="images/unregisterBig.png">
+                    <h2>إلغاء كورس</h2>
+                </div> 
+                <div class="borderContent" style="background-color:#ff5733;" onclick="location.href='عميل - بحث طلاب.php'" >
+                    <img src="images/editBig.png">    
+                    <h2>تعديل بيانات</h2>    
                 </div> 
             </div>
             
