@@ -26,7 +26,7 @@
                     <img src="images/yearBig.png">
                     <h2>سنة دراسية</h2>
                 </div>
-                <div class="borderContent" style="background-color:#571845;">
+                <div class="borderContent" style="background-color:#571845;" onclick="location.href='عميل - مادة.php'">
                     <img src="images/subjectBig.png">    
                     <h2>مادة</h2>    
                 </div> 

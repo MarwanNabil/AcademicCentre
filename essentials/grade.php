@@ -48,11 +48,11 @@
         }
         public function editGrade($gradeID , $newGrade){
             $query = database::getInstance()->prepare("UPDATE grade SET gradeNumber = ?, gradeName = ? WHERE id = ?");
-            $query = $query->execute(array($newGrade->getGradeNumber() , $newGrade->getGradeName() , $gradeID));
+            $query->execute(array($newGrade->getGradeNumber() , $newGrade->getGradeName() , $gradeID));
         }
         public function deleteGrade($gradeID){
             $query = database::getInstance()->prepare("DELETE FROM grade WHERE id = ?");
-            $query = $query->execute(array($gradeID));
+            $query->execute(array($gradeID));
         }
         public function countNumberOfGradeNumber($gradeNumber){
             $query = database::getInstance()->prepare("SELECT * from grade WHERE gradeNumber = ?");

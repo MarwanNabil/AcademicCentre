@@ -1,5 +1,10 @@
 <?php
+    require_once 'must.php';
     require_once 'essentials/grade.php';
+
+
+    $fileName = "عميل - صف دراسي.php";
+    $ourCurrentDirectory = $ourDirectory . '/' . $fileName;
     
     //to get all grades from the database.
     $allGrades = gradeFactory::getAllGrades();
@@ -14,15 +19,17 @@
                     //make sure you have only one grade number (uniqe)
                     $grade = new grade(-1 , $_POST['gradeNumber'] , $_POST['gradeName']);
                     gradeFactory::addNewGrade($grade);
+                    header("Location : " . $ourCurrentDirectory);
                 } else {
                     throw new ErrorException("رجاء مليء معلومات الصف الدراسي بشكل صحيح");
                 }
             } else if(isset($_POST['gradeOptions'])) {
+                echo $_POST['gradeOptions'];
                 gradeFactory::deleteGrade($_POST['gradeOptions']);
+                header("Location : " . $ourCurrentDirectory);
             }
-            unset($_POST);
         } catch(exception $e){
-            
+
         }
     }
 
@@ -97,11 +104,7 @@
                                     }
                                 }
                             ?>
-                            <!--
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>-->
+                            <!-- <option value="volvo">Volvo</option> -->
                         </select>
                         <br><br>
                         <input type="submit" value="حذف">
