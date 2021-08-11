@@ -98,7 +98,7 @@
             </table>
             <div style="float:right; width:49%; background-color:#0170c1; height:500px; border-radius:5px;">
                     <h1 style="padding-right:20px;">إضافة مادة</h1>
-                    <form style="text-align:right; float:right; width=100%;" method="POST">
+                    <form style="margin-top:10px; width:100%; text-align:right; float:right;" method="POST">
 
 
                         <label  for="un"><b>الصف الدراسي</b></label>
@@ -117,8 +117,10 @@
                             ?>
                             <!-- <option value="volvo">Volvo</option> -->
                         </select>
+                        <br><br>
                         <label  for="un"><b>اسم المادة</b></label>
                         <input type="text" placeholder="اسم المادة" name="subjectNameAdding" maxlength="30">
+                        <br>
                         <input type="submit" value="تسجيل">
                     </form>
                 </div>

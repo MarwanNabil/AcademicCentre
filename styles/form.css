@@ -1,41 +1,57 @@
 form{
-	padding:75px;
+	padding:30px;
 	border-radius: 5px;
 	box-sizing: border-box;
 }
 input[type=text], select {
-	float:right;
+	width: 75%;
+	float:left;
 	text-align: right;
-	width: 60%;
-	padding: 12px 20px;
-	margin: 8px 0;
+	padding: 14px 20px;
+	margin: 4px 0;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 }
 input[type=password], select {
-	float:right;
+	width: 75%;
+	float:left;
 	text-align: right;
-	width: 60%;
-	padding: 12px 20px;
-	margin: 8px 0;
+	padding: 14px 20px;
+	margin: 4px 0;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 }
 input[type=submit] {
+	width: 25%;
+	float:left;
 	background-color: #00af52;
 	font-size: 15px;
 	color: white;
 	padding: 14px 20px;
 	border: none;
+	margin: 4px 0;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+input[type=submit]:hover{
+	background-color: #FFB833;
+}
+
+select{
+	width: 75%;
 	float:left;
+	padding: 14px 20px;
+	margin: 4px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 label, p{	
-	padding-top:20px;
-	padding-left:50px;
-	padding-right:50px;
-	float:right;
+	padding: 15px 0px 12px 12px;
+	margin: 4px 0;
+	font-weight: bold;
+	/* top right bottom left*/
 	text-align: right;
+	display: inline-block;
 }

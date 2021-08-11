@@ -24,9 +24,10 @@
                     throw new ErrorException("رجاء مليء معلومات الصف الدراسي بشكل صحيح");
                 }
             } else if(isset($_POST['gradeOptions'])) {
-                echo $_POST['gradeOptions'];
-                gradeFactory::deleteGrade($_POST['gradeOptions']);
-                header("Location : " . $ourCurrentDirectory);
+                if($_POST['gradeOptions'] != 0){
+                    gradeFactory::deleteGrade($_POST['gradeOptions']);
+                    header("Location : " . $ourCurrentDirectory);
+                }
             }
         } catch(exception $e){
 
@@ -91,8 +92,9 @@
                 <div style="background-color:#0170c1; height:500px; width:49%; border-radius:5px; float:left;">
                     <h1 style="padding-right:15px; padding-top:10px;">حذف صف دراسي بجميع ما يتعلق</h1>
                     <form method="POST">
-                        <label>أختار صف دراسي للحذف</label>
+                        <label><b>أختار صف دراسي للحذف</b></label>
                         <select name="gradeOptions" style="text-align:right;">
+                            <option value="0"></option>
                             <?php
                                 for($i = 0; $i < $allGrades->capacity(); $i++){
                                     try{

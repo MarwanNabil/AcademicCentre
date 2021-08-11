@@ -30,7 +30,7 @@
                     <img src="images/subjectBig.png">    
                     <h2>مادة</h2>    
                 </div> 
-                <div class="borderContent" style="background-color:#0170c1;">
+                <div class="borderContent" style="background-color:#0170c1;" onclick="location.href='عميل - محاضر.php'">
                     <img src="images/teacherBig.png"> 
                     <h2>محاضر</h2>
                 </div>  

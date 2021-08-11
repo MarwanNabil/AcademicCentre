@@ -1,10 +1,9 @@
 <?php
     require_once 'must.php';
-    require_once 'essentials/grade.php';
-    require_once 'essentials/student.php';
+    require_once 'essentials/teacher.php';
 
-
-    $allGrades = gradeFactory::getAllGrades();
+    $fileName = "عميل - تعديل طالب.php";
+    $ourCurrentDirectory = $ourDirectory . '/' . $fileName;
 
     $wrongIssue;
 
@@ -13,50 +12,40 @@
         try{
             if($_POST['firstName'] == "" )
                 throw new ErrorException("الأسم الأول فارغ");
-            if($_POST['lastName'] == "")
+            if($_POST['secondName'] == "")
                 throw new ErrorException("الأسم الاخير فارغ");
             if($_POST['phoneNumber'] == "")
                 throw new ErrorException("موبايل الطالب فارغ");
             if($_POST['password'] == "")
                 throw new ErrorException("كلمة السر فارغة");
-            if($_POST['telephoneNumber'] == "")
-                throw new ErrorException("هاتف البيت فارغ");
-            if($_POST['parentOnePhoneNumber'] == "")
-                throw new ErrorException("موبايل ولي الامر الطالب الأول فارغ");
-            if($_POST['parentTwoPhoneNumber'] == "")
-                throw new ErrorException("موبايل ولي الامر الطالب الثاني فارغ");
-            if($_POST['grade'] == "")        
+            if($_POST['website'] == "")        
                 throw new ErrorException("الصف الدراسي فارغ");
             
 
 
-            $entry = new student();
+            $entry = new teacher();
             $entry->setFirstName($_POST['firstName']);
-            $entry->setlastName($_POST['lastName']);
+            $entry->setSecondName($_POST['secondName']);
             $entry->setPhoneNumber($_POST['phoneNumber']);
             $entry->setPassword($_POST['password']);
-            $entry->setTelephoneNumber($_POST['telephoneNumber']);
-            $entry->setParentOnePhoneNumber($_POST['parentOnePhoneNumber']);
-            $entry->setParentTwoPhoneNumber($_POST['parentTwoPhoneNumber']);
-            $entry->setGradeID($_POST['grade']);
+            $entry->setWebsite($_POST['website']);
             
             
-            studentFactory::addStudent($entry);
-            unset($_POST);
+            teacherFactory::addTeacher($entry);
+            header('Location: ' . $ourCurrentDirectory);
+            exit;
         } catch(exception $e){
             $wrongIssue = $e->getMessage();
         }
         
     }
 
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>عميل - اضافة طالب</title>
+        <title>عميل - تعديل طالب</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
         <link rel="stylesheet" type="text/css" href="styles/toolbar.css"/>
@@ -72,18 +61,18 @@
         </ul>
         <div style="display:inline-block; width:100%; margin-top:5px;">
             <img style="float:right;" src="images/backSmall.png" onclick="location.href='عميل - طالب.php'">
-            <h1 style="float:right; margin-right:10px;">اضافة طالب</h1>
+            <h1 style="float:right; margin-right:10px;">تعديل طالب</h1>
         </div>
         <div style="padding-right: 30px; padding-top: 10px; margin-top:10px;">
                 
                 <form style="margin-top:10px; width:100%; text-align:right; float:right; background-color:green;" method="POST">
-                    <h1>إضافة طالب</h1>
+                    <h1>إضافة محاضر</h1>
 
                     <label  for="un"><b>الأسم الأول</b></label>
                     <input type="text" placeholder="الأسم الأول" name="firstName" maxlength="30">
                     <br>
                     <label  for="un"><b>الأسم الثاني</b></label>
-                    <input type="text" placeholder="الأسم الثاني" name="lastName" maxlength="60">
+                    <input type="text" placeholder="الأسم الثاني" name="secondName" maxlength="60">
                     <br>
                     <label style="" for="un"><b>رقم الموبايل</b></label>
                     <input type="text" placeholder="رقم الموبايل" name="phoneNumber" maxlength="11">
@@ -91,35 +80,12 @@
                     <label  for="un"><b>كلمة المرور</b></label>
                     <input type="password" placeholder="كلمة المرور" name="password" maxlength="30">
                     <br>
-                    <label  for="un"><b>هاتف المنزل</b></label>
-                    <input type="text" placeholder="هاتف المنزل" name="telephoneNumber" maxlength="20">
+                    <label  for="un"><b>الموقع</b></label>
+                    <input type="text" placeholder="موقع" name="website" maxlength="60">
                     <br>
-                    <label  for="un"><b>ولي الامر الأول</b></label>
-                    <input type="text" placeholder="موبايل" name="parentOnePhoneNumber" maxlength="11">
-                    <br>
-                    <label  for="un"><b>ولي الامر الثاني</b></label>
-                    <input type="text" placeholder="موبايل" name="parentTwoPhoneNumber" maxlength="11">
-                    <br>
-                    <label  for="un"><b>الصف الدراسي</b></label>
-                        
-                        <select name="gradeID" style="">
-                            <option value="0"></option>
-                            <?php
-                                for($i = 0; $i < $allGrades->capacity(); $i++){
-                                    try{
-                                        $current = $allGrades->get($i);
-                                        echo "<option value='" . $current->getID() . "'> ";
-                                        echo $current->getGradeName() . '</option>';
-                                    } catch(Exception $e){
-                                        break;
-                                    }
-                                }
-                            ?>
-                            <!-- <option value="volvo">Volvo</option> -->
-                        </select>
-                        <br><br>
+                    
                    
-                        <input type="submit" value="تسجيل">
+                    <input type="submit" value="تسجيل">
                 </form>
             
         </div>

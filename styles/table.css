@@ -3,6 +3,7 @@ table {
     text-align: right;
     font-family: arial, sans-serif;
     border-collapse: collapse;  
+    background-color: #f8f8f8;
   }
   
   td, th {

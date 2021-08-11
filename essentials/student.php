@@ -9,15 +9,15 @@
         private $password;
         private $phoneNumber , $parentOnePhoneNumber , $parentTwoPhoneNumber;
         private $telephoneNumber;
-        private $grade;
+        private $gradeID;
         public function __construct(){}
-        public function __construct1($id , $firstName , $lastName , $password , $phoneNumber , $grade , $parentOnePhoneNumber , $parentTwoPhoneNumber , $telephoneNumber){
+        public function __construct1($id , $firstName , $lastName , $password , $phoneNumber , $gradeID , $parentOnePhoneNumber , $parentTwoPhoneNumber , $telephoneNumber){
             $this->id = $id;
             $this->firstName = $firstName;
             $this->lastName = $lastName;
             $this->password = $password;
             $this->phoneNumber = $phoneNumber;
-            $this->grade = $grade;
+            $this->gradeID = $gradeID;
             $this->parentOnePhoneNumber = $parentOnePhoneNumber;
             $this->parentTwoPhoneNumber = $parentTwoPhoneNumber;
             $this->telephoneNumber = $telephoneNumber;
@@ -61,11 +61,11 @@
         public function setTelephoneNumber($telephoneNumber){
             $this->telephoneNumber = $telephoneNumber;
         }
-        public function getGrade(){
-            return $this->grade;
+        public function getGradeID(){
+            return $this->gradeID;
         }
-        public function setGrade($grade){
-            $this->grade = $grade;
+        public function setGradeID($gradeID){
+            $this->gradeID = $gradeID;
         }
         public function getParentOnePhoneNumber(){
             return $this->parentOnePhoneNumber;
@@ -86,8 +86,8 @@
             
             //make sure that every point of data doesn't vaiolate our database conditions.
             
-            $query = database::getInstance()->prepare("INSERT INTO student (id, firstName, lastName, password, phoneNumber, grade, firstParentPhoneNumber, secondParentPhoneNumber, telephoneNumber) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $query->execute(array($newStudent->getFirstName(), $newStudent->getlastName(), $newStudent->getPassword(), $newStudent->getPhoneNumber(), $newStudent->getGrade(), $newStudent->getParentOnePhoneNumber(), $newStudent->getParentTwoPhoneNumber(), $newStudent->getTelephoneNumber()));
+            $query = database::getInstance()->prepare("INSERT INTO student (id, firstName, lastName, password, phoneNumber, gradeID, firstParentPhoneNumber, secondParentPhoneNumber, telephoneNumber) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $query->execute(array($newStudent->getFirstName(), $newStudent->getlastName(), $newStudent->getPassword(), $newStudent->getPhoneNumber(), $newStudent->getGradeID(), $newStudent->getParentOnePhoneNumber(), $newStudent->getParentTwoPhoneNumber(), $newStudent->getTelephoneNumber()));
         }
         public function deleteStudentViaID($targetStudentID){
             $query = database::getInstance()->prepare("DELETE FROM student WHERE id = ?");
@@ -108,7 +108,7 @@
             $foundStudent->setTelephoneNumber($row['telephoneNumber']);
             $foundStudent->setParentOnePhoneNumber($row['firstParentPhoneNumber']);
             $foundStudent->setParentTwoPhoneNumber($row['secondParentPhoneNumber']);
-            $foundStudent->setGrade($row['grade']);
+            $foundStudent->setGradeID($row['gradeID']);
             return $foundStudent;
         }
 
@@ -151,7 +151,7 @@
             $adder = '';
             $array = [];
             
-            if($target->getID() == ""){
+            if($target->getID() == 0){
                 $adder .= "WHERE id LIKE '%' ";
             } else {
                 $adder .= 'WHERE id = ? ';
@@ -200,11 +200,11 @@
                 array_push($array , $target->getParentTwoPhoneNumber());
             }
 
-            if($target->getGrade() == ""){
-                $adder .= "AND grade LIKE '%' ";
+            if($target->getGradeID() == 0){
+                $adder .= "AND gradeID LIKE '%' ";
             } else {
-                $adder .= 'AND grade = ? ';
-                array_push($array , $target->getGrade());
+                $adder .= 'AND gradeID = ? ';
+                array_push($array , $target->getGradeID());
             }
 
             $will .= $adder;
